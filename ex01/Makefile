@@ -1,9 +1,9 @@
-NAME		= bank_bonus
-CXX		= c++
+NAME		= graph
+CXX		    = c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
-SRCS		= main.cpp Bank.cpp
+SRCS		= main.cpp Vector2.cpp Graph.cpp
 OBJS		= $(SRCS:.cpp=.o)
-HDRS		= Bank.hpp
+HDRS		= Vector2.hpp Graph.hpp
 
 all: $(NAME)
 
