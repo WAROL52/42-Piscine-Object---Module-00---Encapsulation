@@ -49,7 +49,7 @@ int main()
 		Graph neg(Vector2(-4, -2));
 		std::cout << neg << std::endl;
 	}
-	catch (...) // ex: std::bad_alloc, le programme ne doit jamais crasher
+	catch (...)
 	{
 		std::cerr << "Erreur inattendue" << std::endl;
 		return (1);
