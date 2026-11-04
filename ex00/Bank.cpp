@@ -27,14 +27,15 @@ Bank::~Bank()
 {
 }
 
-// 5 % arrondi a l'inferieur, calcule sans risque de depassement d'int.
-// amount = 100*q + r  =>  amount*5/100 = 5*q + (5*r)/100
 int Bank::feeOf(int amount)
 {
-	return (amount / 100 * FEE_PERCENT + (amount % 100) * FEE_PERCENT / 100);
+	double percentage = FEE_PERCENT / 100.0;
+	double fee = amount * percentage;
+
+	return fee;
 }
 
-bool Bank::addOverflows(int a, int b) // a et b sont toujours >= 0
+bool Bank::addOverflows(int a, int b) // a + b sont toujours >= 0
 {
 	return (b > INT_MAX - a);
 }
@@ -76,7 +77,7 @@ bool Bank::deposit(int id, int amount)
 	return (true);
 }
 
-bool Bank::withdraw(int id, int amount)
+bool Bank::takeMoney(int id, int amount)
 {
 	if (amount <= 0)
 		return (false);
@@ -89,7 +90,7 @@ bool Bank::withdraw(int id, int amount)
 
 // Le pret est une entree d'argent sur le compte : 5 % pour la banque.
 // Le client est credite de (amount - fee) mais doit rembourser amount.
-bool Bank::giveLoan(int id, int amount)
+bool Bank::lendMoney(int id, int amount)
 {
 	if (amount <= 0 || amount > _liquidity)
 		return (false);
@@ -108,7 +109,7 @@ bool Bank::giveLoan(int id, int amount)
 	return (true);
 }
 
-bool Bank::repayLoan(int id, int amount)
+bool Bank::returnLoanMoney(int id, int amount)
 {
 	if (amount <= 0)
 		return (false);
