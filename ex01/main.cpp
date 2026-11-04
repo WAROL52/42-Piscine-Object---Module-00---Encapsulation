@@ -35,8 +35,8 @@ int main()
 		report("addPoint(2.9/0.2) -> case 3/0", r.addPoint(Vector2(2.9f, 0.2f)));
 		std::cout << r << std::endl;
 
-		std::cout << "== Taille 12 (alignement sur 2 chiffres) ==" << std::endl;
-		Graph big(Vector2(12, 12));
+		std::cout << "== Taille 50 (alignement sur 2 chiffres) ==" << std::endl;
+		Graph big(Vector2(50, 50));
 		big.addPoint(Vector2(0, 0));
 		big.addPoint(Vector2(11, 3));
 		big.addPoint(Vector2(12, 12));

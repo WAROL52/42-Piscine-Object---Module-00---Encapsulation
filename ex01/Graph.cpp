@@ -109,8 +109,6 @@ void Graph::print(std::ostream &os) const
 	const int my = maxY();
 	const int w = digits(mx > my ? mx : my);
 
-	// Grille construite d'abord : evite de chercher, pour chaque case,
-	// si un point s'y trouve.
 	std::vector<std::string> grid(my + 1, std::string(mx + 1, '.'));
 
 	for (std::vector<Vector2>::const_iterator it = _points.begin();
@@ -126,7 +124,7 @@ void Graph::print(std::ostream &os) const
 	}
 	os << std::string(w, ' ');
 	for (int x = 0; x <= mx; ++x)
-		os << ' ' << std::setw(w) << x;
+		os << " " << std::setw(w) << x;
 	os << std::endl;
 }
 
